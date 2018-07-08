@@ -12,7 +12,7 @@ const Discord = require('discord.js')
 
 app.use(bodyParser.json());
 app.post('/', (req, res) => {
-  const value = (1 - req.body.current / req.body.target) * 100;
+  const value = (req.body.current / req.body.target - 1) * 100;
   client.send(`${req.body.name}: 目標値まで現在${value.toFixed(2)}%`);
   res.send('OK');
 });
